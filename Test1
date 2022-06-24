@@ -1,0 +1,7 @@
+def YfinanceData(Symbols):
+    # Interval required 5 minutes
+    start = datetime.datetime(2015, 12, 1)
+    for Symbol in Symbols:
+        Yfinance_DataFrame = yf.download(tickers=Symbol, interval='1d', start= start)
+        Yfinance_DataFrame['Symbol'] = Symbol
+        Yfinance_DataFrame.to_csv('02_Yfinance_Data.csv')
